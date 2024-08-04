@@ -1,27 +1,23 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import OnBoarding from '../screens/Onboarding';
+import WalkThrough from '../screens/WalkThrough';
 import HomeScreen from '@/presentation/screens/HomeScreen';
-import { ColorValue } from 'react-native';
+import { Boarding } from '../screens/Boarding';
+import { SignIn } from '../screens/SignIn';
+import { SignUp } from '../screens/SignUp';
 
 const Stack = createNativeStackNavigator();
 
-interface NavigationProps {
-    onColorValue: (color: ColorValue | undefined) => void
-  }
-
-const Navigation:React.FC<NavigationProps> = ({onColorValue}) => {
+const Navigation = ({}) => {
   return (
     <NavigationContainer independent={true}>
       <Stack.Navigator screenOptions={{headerShown: false, }} >
-        <Stack.Screen name="OnBoarding">
-          {props => <OnBoarding {...props} onColorValue={onColorValue} />}
-        </Stack.Screen>
-        
-        <Stack.Screen name="HomeScreen">
-          {props => <HomeScreen {...props} onColorValue={onColorValue} />}
-        </Stack.Screen>
+        <Stack.Screen name="WalkThrough" component={WalkThrough}/>
+        <Stack.Screen name="Boarding" component={Boarding}/>
+        <Stack.Screen name="SignIn" component={SignIn}/>
+        <Stack.Screen name="SignUp" component={SignUp}/>
+        <Stack.Screen name="HomeScreen" component={HomeScreen}/>
         
       </Stack.Navigator>
     </NavigationContainer>

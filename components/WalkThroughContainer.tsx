@@ -1,26 +1,26 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ScrollView, StatusBar } from 'react-native';
 
-interface OnboardingCardContainer{
+interface WalkThroughContainer{
     title: string;
     description: string;
     buttonTitle: string;
     onPress: () => void;
 }
-// OnboardingCardContainer component
-const OnboardingCardContainer:React.FC<OnboardingCardContainer> = ({ title, description, buttonTitle, onPress }) => {
+// WalkThroughContainer component
+const WalkThroughContainer:React.FC<WalkThroughContainer> = ({ title, description, buttonTitle, onPress }) => {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <OnboardingCard onPress={onPress } title={title} description={description} buttonTitle={buttonTitle} />
+        <WalkThroughCard onPress={onPress } title={title} description={description} buttonTitle={buttonTitle} />
       </ScrollView>
     </View>
   );
 };
 
 
-// OnboardingCard component
-const OnboardingCard:React.FC<OnboardingCardContainer> = ({ title, description, buttonTitle, onPress }) => {
+// WalkThroughCard component
+const WalkThroughCard:React.FC<WalkThroughContainer> = ({ title, description, buttonTitle, onPress }) => {
   return (
     <View style={styles.card}>
       <View style={styles.content}>
@@ -91,4 +91,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OnboardingCardContainer;
+export default WalkThroughContainer;

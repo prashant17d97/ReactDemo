@@ -1,23 +1,18 @@
 import AppView from '@/components/AppView';
-import OnboardingCardContainer from '@/components/OnboardingCardContainer';
+import WalkThroughContainer from '@/components/WalkThroughContainer';
 import { useThemeContext } from '@/presentation/theme/ThemeContext';
 import { useNavigation } from 'expo-router';
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { ColorValue, FlatList, ViewToken } from 'react-native';
 
-// Define the props for the OnBoarding component
-interface OnBoardingProps {
-  onColorValue: (color: ColorValue | undefined) => void
-}
-
-const OnBoarding: React.FC<OnBoardingProps> = ({ onColorValue }) => {
+const WalkThrough = () => {
   const navigation = useNavigation() as { navigate: (routeName: string) => void };
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const flatListRef = useRef<FlatList<OnboardingCardContainer> | null>(null);
+  const flatListRef = useRef<FlatList<WalkThroughContainer> | null>(null);
   const { theme } = useThemeContext();
 
-  const screens: OnboardingCardContainer[] = [
+  const screens: WalkThroughContainer[] = [
     {
       title: 'look for jobs online quickly',
       description: 'we are the world\'s number one independent platform',
@@ -29,12 +24,7 @@ const OnBoarding: React.FC<OnBoardingProps> = ({ onColorValue }) => {
   ];
 
   const handleNext = () => {
-    navigation.navigate("HomeScreen");
-    // if (currentIndex < screens.length - 1) {
-    //   const nextIndex = currentIndex + 1;
-    //   setCurrentIndex(nextIndex);
-    //   flatListRef.current?.scrollToIndex({ index: nextIndex, animated: true });
-    // }
+    navigation.navigate("Boarding");
   };
 
   const onViewableItemsChanged = useCallback(({ viewableItems }: { viewableItems: ViewToken[] }) => {
@@ -44,21 +34,13 @@ const OnBoarding: React.FC<OnBoardingProps> = ({ onColorValue }) => {
   }, []);
 
   const viewabilityConfig = { itemVisiblePercentThreshold: 50 };
-
-  // Call the onColorValue callback when the component mounts or theme.primary changes
-  useEffect(() => {
-    if (onColorValue) {
-      onColorValue(theme.primary);
-    }
-  }, [theme.primary, onColorValue]);
-
   return (
-    <AppView color={theme.primary}>
-      <FlatList<OnboardingCardContainer>
+    <AppView >
+      <FlatList<WalkThroughContainer>
         ref={flatListRef}
         data={screens}
         renderItem={({ item }) => (
-          <OnboardingCardContainer
+          <WalkThroughContainer
             title={item.title}
             description={item.description}
             buttonTitle={'Next'}
@@ -75,4 +57,4 @@ const OnBoarding: React.FC<OnBoardingProps> = ({ onColorValue }) => {
     </AppView>
   );
 };
-export default OnBoarding;
+export default WalkThrough;

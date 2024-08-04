@@ -4,23 +4,13 @@ import { useThemeContext } from '../theme/ThemeContext';
 import AppView from '../../components/AppView';
 import PrimaryButton from '@/components/PrimaryButton';
 
-interface HomeScreenProps {
-  onColorValue: (color: ColorValue | undefined) => void
-}
 
-export const HomeScreen: React.FC<HomeScreenProps> = ({ onColorValue }) => {
+export const HomeScreen = () => {
   const { theme, toggleTheme } = useThemeContext();
 
   if (!theme || !toggleTheme) {
     throw new Error('Theme context is not properly initialized');
   }
-  
-  useEffect(() => {
-    if (onColorValue) {
-      onColorValue(theme.backgroundColor);
-    }
-  }, [theme.backgroundColor, onColorValue]);
-
   return (
     <AppView>
       <View style={styles.main}>
@@ -39,6 +29,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onColorValue }) => {
 const styles = StyleSheet.create({
   main: {
     flex: 1,
+    width:'100%',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
   },

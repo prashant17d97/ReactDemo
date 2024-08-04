@@ -10,12 +10,11 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider: React.FC<{ children: ReactNode, statusColor?:ColorValue }> = ({ children ,statusColor}) => {
+export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children}) => {
   const systemTheme = useColorScheme();
   const [isDarkMode, setIsDarkMode] = useState(systemTheme === 'dark');
 
   const theme = isDarkMode ? darkTheme : lightTheme;
-  const statusBarColor = statusColor??theme.backgroundColor
 
   const toggleTheme = () => {
     setIsDarkMode(prevMode => !prevMode);
@@ -23,10 +22,6 @@ export const ThemeProvider: React.FC<{ children: ReactNode, statusColor?:ColorVa
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-       <StatusBar
-        barStyle={theme.isDark ? 'light-content' : 'dark-content'}
-        backgroundColor={statusBarColor}
-      />
       {children}
     </ThemeContext.Provider>
   );
