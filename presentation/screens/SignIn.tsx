@@ -75,7 +75,7 @@ export const SignIn = () => {
                   backgroundColor={theme.primary}
                   height={48}
                   onClick={() => {
-                      // TODO: Implement sign up email functionality
+                    navigation.navigate('HomeScreen')
                   } } icon={0}        />
 
         <View  style={styles.spacer}/>
@@ -88,7 +88,7 @@ export const SignIn = () => {
           iconSize={24}
           height={48}
           onClick={() => {
-            // TODO: Implement sign up with Google functionality
+            navigation.navigate('HomeScreen')
           }}
           icon={require('@/assets/images/google.png')}
         />
@@ -101,7 +101,7 @@ export const SignIn = () => {
           iconSize={24}
           height={48}
           onClick={() => {
-            // TODO: Implement sign up with Apple functionality
+            navigation.navigate('HomeScreen')
           }}
           icon={require('@/assets/images/apple.png')}
         />
@@ -120,7 +120,7 @@ export const SignIn = () => {
         textBeforeLink="Forgot Password?"
         linkText=" Reset"
         onLinkPress={() => {
-          // TODO: Implement sign in functionality
+          navigation.navigate('ResetPassword')
         }}
       />
       </View>

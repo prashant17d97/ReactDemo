@@ -72,7 +72,7 @@ export const Boarding = () => {
         textBeforeLink="Forgot Password?"
         linkText=" Reset"
         onLinkPress={() => {
-          // TODO: Implement sign in functionality
+          navigation.navigate('ResetPassword')
         }}
       />
       </View>

@@ -6,6 +6,9 @@ import HomeScreen from '@/presentation/screens/HomeScreen';
 import { Boarding } from '../screens/Boarding';
 import { SignIn } from '../screens/SignIn';
 import { SignUp } from '../screens/SignUp';
+import ResetPassword from '../screens/ResetPassword';
+import NewPassword from '../screens/NewPassword';
+import OtpVerification from '../screens/OtpVerification';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +20,9 @@ const Navigation = ({}) => {
         <Stack.Screen name="Boarding" component={Boarding}/>
         <Stack.Screen name="SignIn" component={SignIn}/>
         <Stack.Screen name="SignUp" component={SignUp}/>
+        <Stack.Screen name="ResetPassword" component={ResetPassword}/>
+        <Stack.Screen name="OtpVerification" component={OtpVerification}/>
+        <Stack.Screen name="NewPassword" component={NewPassword}/>
         <Stack.Screen name="HomeScreen" component={HomeScreen}/>
         
       </Stack.Navigator>

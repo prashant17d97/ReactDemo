@@ -110,43 +110,43 @@ const typography = StyleSheet.create({
     fontSize: 14,
     fontWeight: '400',
     lineHeight: 20,
-    color: '#00FF00', // Example success color
+    color: lightTheme.textColor, // Example success color
   },
   heading1: {
     fontSize: 36,
     fontWeight: 'bold',
     lineHeight: 44,
-    color: '#000',
+    color: lightTheme.textColor,
   },
   heading2: {
     fontSize: 30,
     fontWeight: 'bold',
     lineHeight: 38,
-    color: '#000',
+    color: lightTheme.textColor,
   },
   heading3: {
     fontSize: 26,
     fontWeight: '600',
     lineHeight: 34,
-    color: '#000',
+    color: lightTheme.textColor,
   },
   heading4: {
     fontSize: 22,
     fontWeight: '600',
     lineHeight: 30,
-    color: '#000',
+    color: lightTheme.textColor,
   },
   heading5: {
     fontSize: 20,
     fontWeight: '500',
     lineHeight: 28,
-    color: '#000',
+    color: lightTheme.textColor,
   },
   heading6: {
     fontSize: 18,
     fontWeight: '500',
     lineHeight: 26,
-    color: '#000',
+    color: lightTheme.textColor,
   },
 });
 

@@ -10,12 +10,12 @@ import DynamicTextField, { ImeActionType, KeyboardType, TextFieldType } from "@/
 import { useRef, useState } from "react";
 import PasswordInput from "@/components/PasswordInput";
 import Email from "@/assets/svgs/Email";
-import Back from "@/assets/svgs/Back";
 import { ClickableBack } from "@/components/ClickableBack";
 
 export const SignUp = () => {
   const navigation = useNavigation();
   const { theme } = useThemeContext();
+  const screenNavigation = useNavigation() as { navigate: (routeName: string) => void };
   const [name, setName] = useState(""); 
   const [email, setEmail] = useState(""); 
   const [password, setPassword] = useState(""); 
@@ -91,16 +91,17 @@ export const SignUp = () => {
                   backgroundColor={theme.primary}
                   height={48}
                   onClick={() => {
-                      // TODO: Implement sign up email functionality
+                    screenNavigation.navigate('HomeScreen')
                   } } icon={0}        />
     <ClickableText
         textBeforeLink="Forgot Password?"
         linkText=" Reset"
         onLinkPress={() => {
-          // TODO: Implement sign in functionality
+          screenNavigation.navigate('ResetPassword')
         }}
       />
 
+      
 <ClickableText
         textBeforeLink="Or"
         linkText=""
@@ -117,7 +118,7 @@ export const SignUp = () => {
           iconSize={24}
           height={48}
           onClick={() => {
-            // TODO: Implement sign up with Google functionality
+            screenNavigation.navigate('HomeScreen')
           }}
           icon={require('@/assets/images/google.png')}
         />
@@ -130,7 +131,7 @@ export const SignUp = () => {
           iconSize={24}
           height={48}
           onClick={() => {
-            // TODO: Implement sign up with Apple functionality
+            screenNavigation.navigate('HomeScreen')
           }}
           icon={require('@/assets/images/apple.png')}
         />

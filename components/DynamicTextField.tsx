@@ -24,7 +24,7 @@ export enum KeyboardType {
 }
 
 interface Props {
-  inputRef: React.RefObject<TextInput>;
+  inputRef?: React.RefObject<TextInput>;
   leadingIcon?: ReactNode;
   trailingIcon?: any;
   textFieldType: TextFieldType;
