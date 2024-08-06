@@ -27,15 +27,15 @@ export const SignIn = () => {
   const handleOnSubmitDone = () => {
     inputRef.current?.clear();  
   };
-  const handleBackPress = () => {
-    navigation1.goBack();
-    console.log("Back button pressed");
-  };
+  // const handleBackPress = () => {
+  //   navigation1.goBack();
+  //   console.log("Back button pressed");
+  // };
 
   return (
     <AppView>
       <View style={styles.container}>
-      <ClickableBack onClick={handleBackPress}/>
+      {/* <ClickableBack onClick={handleBackPress}/> */}
         <View style={styles.textContainer}>
           <Text style={[typography.h2, styles.title]}>Hello Again!</Text>
           <Text style={[typography.caption, styles.description]}>
@@ -45,7 +45,6 @@ export const SignIn = () => {
 
         <DynamicTextField 
         inputRef={inputRef}
-        textFieldType={TextFieldType.NORMAL} 
         leadingIcon={<Email />}
         keyboardType={KeyboardType.EMAIL}
         imeAction={ImeActionType.NEXT}
@@ -133,7 +132,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     alignContent: "flex-start",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     gap: 16,
   },
   textContainer: {

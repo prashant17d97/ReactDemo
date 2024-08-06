@@ -1,7 +1,7 @@
-// ThemeContext.js or ThemeContext.tsx
-import React, { createContext, useState, useContext, ReactNode} from 'react';
-import { useColorScheme, StatusBar, ColorValue } from 'react-native';
+import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import { useColorScheme } from 'react-native';
 import { lightTheme, darkTheme } from './Colors';
+import { getKey, saveKey } from '@/storage/SecureStorage';
 
 interface ThemeContextType {
   theme: typeof lightTheme | typeof darkTheme;
@@ -10,15 +10,28 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children}) => {
+export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const systemTheme = useColorScheme();
   const [isDarkMode, setIsDarkMode] = useState(systemTheme === 'dark');
 
   const theme = isDarkMode ? darkTheme : lightTheme;
 
-  const toggleTheme = () => {
-    setIsDarkMode(prevMode => !prevMode);
+  const toggleTheme = async () => {
+    const newTheme = !isDarkMode;
+    setIsDarkMode(newTheme);
+    await saveKey('theme', newTheme.toString());
   };
+
+  useEffect(() => {
+    const fetchTheme = async () => {
+      const value = await getKey('theme');
+      if (value !== null) {
+        setIsDarkMode(value === 'true');
+      }
+    };
+
+    fetchTheme();
+  }, [systemTheme]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

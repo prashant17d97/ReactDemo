@@ -24,7 +24,7 @@ const WalkThrough = () => {
   ];
 
   const handleNext = () => {
-    navigation.navigate("Boarding");
+    navigation.navigate("SignIn");
   };
 
   const onViewableItemsChanged = useCallback(({ viewableItems }: { viewableItems: ViewToken[] }) => {

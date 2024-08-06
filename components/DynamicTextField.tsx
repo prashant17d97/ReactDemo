@@ -27,7 +27,6 @@ interface Props {
   inputRef?: React.RefObject<TextInput>;
   leadingIcon?: ReactNode;
   trailingIcon?: any;
-  textFieldType: TextFieldType;
   value: string;
   onChangeText: (text: string) => void;
   placeholder?: string;
@@ -39,7 +38,7 @@ interface Props {
 }
 
 const DynamicTextField: React.FC<Props> = ({
-    inputRef,
+  inputRef,
   leadingIcon,
   trailingIcon= {EyeOff},
   value,

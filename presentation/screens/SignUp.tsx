@@ -45,7 +45,6 @@ export const SignUp = () => {
 
         <DynamicTextField 
         inputRef={inputRef}
-        textFieldType={TextFieldType.NORMAL} 
         leadingIcon={<Email />}
         keyboardType={KeyboardType.DEFAULT}
         imeAction={ImeActionType.NEXT}
@@ -61,7 +60,6 @@ export const SignUp = () => {
 
          <DynamicTextField 
         inputRef={inputRef}
-        textFieldType={TextFieldType.NORMAL} 
         leadingIcon={<Email />}
         keyboardType={KeyboardType.EMAIL}
         imeAction={ImeActionType.NEXT}
